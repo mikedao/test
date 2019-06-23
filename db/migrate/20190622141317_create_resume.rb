@@ -9,6 +9,7 @@ class CreateResume < ActiveRecord::Migration[5.2]
       t.string :source_code
       t.string :production_site
       t.boolean :active, default: true
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end

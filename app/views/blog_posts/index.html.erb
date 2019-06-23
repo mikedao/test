@@ -1,0 +1,10 @@
+<h1>Blog Posts</h1>
+<% BlogPost.get_all.each do |bp| %>
+<div class="card" style="width: 72rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= bp.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= bp.published %></h6>
+    <p class="card-text"><%= bp.summary %></p>
+    </div>
+  </div>
+  <% end %>

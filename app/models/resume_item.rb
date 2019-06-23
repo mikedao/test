@@ -20,16 +20,17 @@ class ResumeItem < ApplicationRecord
     .where(category: "Experience")
   end
 
-  def self.skills
-    select(:title, :description)
-    .where(active: true)
-    .where(category: "Skills")
-  end
-
   def self.projects
     select(:title, :description, :source_code, :production_site)
     .where(active: true)
     .where(category: "Projects")
+  end
+
+  def self.skills
+    select(:description)
+    .where(active: true)
+    .where(category: "Skills")
+    .order(:description)
   end
 
 end
