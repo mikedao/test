@@ -5,4 +5,9 @@ class BlogPost < ApplicationRecord
   validates_presence_of :title
   validates_presence_of :content
   validates_presence_of :published
+
+  def self.get_all
+    select(:title, :summary, :published)
+    .order(published: :desc)
+  end
 end

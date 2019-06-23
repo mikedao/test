@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2019_06_22_141604) do
 
   create_table "blog_posts", force: :cascade do |t|
     t.string "title"
+    t.text "summary"
     t.text "content"
     t.date "published"
     t.bigint "resources_id"
@@ -42,8 +43,10 @@ ActiveRecord::Schema.define(version: 2019_06_22_141604) do
     t.string "source_code"
     t.string "production_site"
     t.boolean "active", default: true
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_resume_items_on_user_id"
   end
 
   create_table "user_posts", force: :cascade do |t|
@@ -66,6 +69,7 @@ ActiveRecord::Schema.define(version: 2019_06_22_141604) do
     t.index ["user_posts_id"], name: "index_users_on_user_posts_id"
   end
 
+  add_foreign_key "resume_items", "users"
   add_foreign_key "user_posts", "blog_posts"
   add_foreign_key "user_posts", "users"
 end
