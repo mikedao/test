@@ -1,0 +1,44 @@
+<h1> <%= @user.first_name  %> <%= @user.last_name  %> </h1>
+<div class="card">
+    <h2>Summary</h2>
+    <div class="summary-card">
+      <% @summary.each do |resume_item| %>
+        <ul>
+          <li><%= resume_item.title %> | <%= resume_item.description %></li>
+        <% end %>
+      </ul>
+  </div>
+  <div class="projects-card">
+    <h2>Projects</h2>
+      <% @projects.each do |resume_item| %>
+        <ul>
+          <li><%= resume_item.title %> | <%= resume_item.description %></li>
+          <li><%= resume_item.source_code %> | <%= resume_item.production_site %></li>
+      </ul>
+      <% end %>
+  </div>
+  <div class="education-card">
+      <h2>Education</h2>
+      <% @education.each do |resume_item| %>
+        <ul>
+          <li><%= resume_item.title %> | <%= resume_item.description %></li>
+        <% end %>
+      </ul>
+  </div>
+  <div class="experience-card">
+      <h2>Experience</h2>
+      <% @experience.each do |resume_item| %>
+        <ul>
+          <li><%= resume_item.title %> | <%= resume_item.description %></li>
+        <% end %>
+      </ul>
+  </div>
+  <div class="skills-card">
+      <h2>Skills</h2>
+      <% @skills.each do |resume_item| %>
+        <ul>
+          <li><%= resume_item.title %> | <%= resume_item.description %></li>
+        <% end %>
+      </ul>
+  </div>
+</div>
