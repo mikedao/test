@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 2019_06_22_141604) do
     t.string "title"
     t.text "content"
     t.date "published"
+    t.bigint "resources_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["resources_id"], name: "index_blog_posts_on_resources_id"
   end
 
   create_table "resources", force: :cascade do |t|
@@ -37,6 +39,9 @@ ActiveRecord::Schema.define(version: 2019_06_22_141604) do
     t.string "category"
     t.date "start"
     t.date "end"
+    t.string "source_code"
+    t.string "production_site"
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,6 +59,10 @@ ActiveRecord::Schema.define(version: 2019_06_22_141604) do
     t.string "github_handle"
     t.string "email"
     t.bigint "user_posts_id"
+    t.string "twitter_handle"
+    t.string "location"
+    t.string "phone"
+    t.string "linkedin_profile"
     t.index ["user_posts_id"], name: "index_users_on_user_posts_id"
   end
 
