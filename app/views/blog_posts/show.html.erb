@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
 
-    <div class="col-6">
+    <div class="col-7">
       <div class="card" >
         <div class="card-header"><%= @blog_post.title %>  || <%= @blog_post.published %></div>
           <div class="card-body">
@@ -10,9 +10,8 @@
           </div>
         </div>
       </div>
-    </div>
 
-      <div class="col-3">
+      <div class="col-4">
         <div class="card">
           <div class="card-header">All Posts</div>
           <% @blog_posts.each do |blog_post| %>
@@ -22,7 +21,6 @@
             <% end %>
           </div>
         </div>
-      </div>
 
     </div>
   </div>
