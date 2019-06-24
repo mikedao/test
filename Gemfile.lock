@@ -44,12 +44,31 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    airbrussh (1.3.2)
+      sshkit (>= 1.6.1, != 1.7.0)
     arel (9.0.0)
     bindex (0.7.0)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (11.0.1)
+    capistrano (3.11.0)
+      airbrussh (>= 1.0.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (1.5.0)
+      capistrano (~> 3.1)
+    capistrano-rails (1.4.0)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
+    capistrano3-puma (3.1.1)
+      capistrano (~> 3.7)
+      capistrano-bundler
+      puma (~> 3.4)
     capybara (3.24.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -80,6 +99,7 @@ GEM
       activesupport (>= 4.2.0)
     launchy (2.4.3)
       addressable (~> 2.3)
+    libv8 (3.16.14.19)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -97,6 +117,9 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     msgpack (1.3.0)
+    net-scp (2.0.0)
+      net-ssh (>= 2.6.5, < 6.0.0)
+    net-ssh (5.2.0)
     nio4r (2.3.1)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
@@ -137,6 +160,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    ref (2.0.0)
     regexp_parser (1.5.1)
     rspec-core (3.8.1)
       rspec-support (~> 3.8.0)
@@ -176,6 +200,12 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sshkit (1.18.2)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
+    therubyracer (0.12.3)
+      libv8 (~> 3.16.14.15)
+      ref
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
@@ -200,6 +230,11 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
+  capistrano
+  capistrano-bundler
+  capistrano-rails
+  capistrano-rvm
+  capistrano3-puma
   capybara
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
@@ -212,6 +247,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   shoulda-matchers
+  therubyracer
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
