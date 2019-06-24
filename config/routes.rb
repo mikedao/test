@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   post '/register', to: 'users#create'
   # navigation bar paths
   get '/resume', to: 'resume_items#index', as: :resume
-  get '/blog', to: 'blog_posts#index'
-  get '/blog/:blog_post_id', to: 'blog_posts#show'
+  resources :blog_posts, only: [:index, :show]
+  # get '/blog', to: 'blog_posts#index'
+  # get '/blog/:id', to: 'blog_posts#show'
 
   resources :users, only: [:new]
 end
