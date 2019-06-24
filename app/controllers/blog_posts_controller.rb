@@ -13,8 +13,7 @@ class BlogPostsController < ApplicationController
   end
 
   def create
-    @blog_post = current_user.blog_posts.new(blog_post_params)
-    @blog_post.active = true
+    @blog_post = BlogPost.new(blog_post_params)
     if @blog_post.save
       flash[:success] = "Your post has been saved!"
       redirect_to blog_posts_path
@@ -22,5 +21,10 @@ class BlogPostsController < ApplicationController
       flash[:danger] = @blog_post.errors.full_messages
       render :new
     end
+  end
+
+  private
+  def blog_post_params
+    params.require(:blog_post).permit(:title, :summary, :content, :published)
   end
 end
