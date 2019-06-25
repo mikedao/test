@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: mySite_production
+  database: blog
   username: mySite
   password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
